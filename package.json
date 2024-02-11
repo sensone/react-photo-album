@@ -105,5 +105,8 @@
     "react image gallery",
     "react-photo-album",
     "react-photo-gallery"
-  ]
+  ],
+  "dependencies": {
+    "@tanstack/react-virtual": "^3.0.4"
+  }
 }

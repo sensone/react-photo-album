@@ -70,6 +70,7 @@ export default function PhotoRenderer<T extends Photo = Photo>(props: PhotoRende
   const { onClick } = layoutOptions;
 
   const imageStyle = {
+    paddingBottom: layoutOptions.spacing,
     display: "block",
     boxSizing: "content-box",
     width: cssPhotoWidth(layout, layoutOptions),

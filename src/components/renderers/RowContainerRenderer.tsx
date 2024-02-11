@@ -3,26 +3,28 @@ import * as React from "react";
 import clsx from "../../utils/clsx";
 import { Optional, Photo, RenderRowContainer, RenderRowContainerProps } from "../../types";
 
-function defaultRenderRowContainer<T extends Photo = Photo>({
-  rowContainerProps,
-  children,
-}: RenderRowContainerProps<T>) {
-  return <div {...rowContainerProps}>{children}</div>;
-}
+// function defaultRenderRowContainer<T extends Photo = Photo>({
+//   rowContainerProps,
+//   children,
+// }: RenderRowContainerProps<T>) {
+//   return <div {...rowContainerProps}>{children}</div>;
+// }
 
 export type RowContainerRendererProps<T extends Photo = Photo> = Optional<
   RenderRowContainerProps<T>,
   "rowContainerProps"
 > & {
   renderRowContainer?: RenderRowContainer<T>;
+  // measureElement: any;
 };
 
 export default function RowContainerRenderer<T extends Photo = Photo>(props: RowContainerRendererProps<T>) {
   const {
-    layoutOptions,
+    // layoutOptions,
     rowIndex,
-    rowsCount,
-    renderRowContainer,
+    // rowsCount,
+    // renderRowContainer,
+    // measureElement,
     rowContainerProps: { style, className, ...restRowContainerProps } = {},
     children,
   } = props;
@@ -35,21 +37,15 @@ export default function RowContainerRenderer<T extends Photo = Photo>(props: Row
       flexWrap: "nowrap",
       alignItems: "flex-start",
       justifyContent: "space-between",
-      ...(rowIndex < rowsCount - 1 ? { marginBottom: `${layoutOptions.spacing}px` } : null),
+      // ...(rowIndex < rowsCount - 1 ? { marginBottom: `${layoutOptions.spacing}px` } : null),
       ...style,
     } as const,
     ...restRowContainerProps,
   };
 
   return (
-    <>
-      {(renderRowContainer ?? defaultRenderRowContainer)({
-        layoutOptions,
-        rowIndex,
-        rowsCount,
-        rowContainerProps,
-        children,
-      })}
-    </>
+    <div {...rowContainerProps} data-index={rowIndex}>
+      {children}
+    </div>
   );
 }

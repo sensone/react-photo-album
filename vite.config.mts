@@ -22,7 +22,7 @@ export default defineConfig({
       fileName: (format) => `index.${format === "es" ? "mjs" : "js"}`,
     },
     rollupOptions: {
-      external: "react",
+      external: ["react", "@tanstack/react-virtual"],
       output: {
         exports: "named",
         banner: '"use client";',
