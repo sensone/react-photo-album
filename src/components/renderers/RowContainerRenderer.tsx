@@ -44,7 +44,7 @@ export default function RowContainerRenderer<T extends Photo = Photo>(props: Row
   };
 
   return (
-    <div {...rowContainerProps} data-index={rowIndex}>
+    <div {...rowContainerProps} data-index={rowIndex} key={rowIndex}>
       {children}
     </div>
   );

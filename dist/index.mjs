@@ -295,7 +295,7 @@ function RowContainerRenderer(props) {
     },
     ...restRowContainerProps
   };
-  return React.createElement("div", { ...rowContainerProps, "data-index": rowIndex }, children);
+  return React.createElement("div", { ...rowContainerProps, "data-index": rowIndex, key: rowIndex }, children);
 }
 function RowsLayout(props) {
   var _a, _b, _c;
